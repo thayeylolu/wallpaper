@@ -2,45 +2,48 @@ import React from 'react'
 import ReactDom from 'react-dom'
 
 import './index.css'
-//setup var
-const author = "Brit Bennett"
-const title = "Vanishing Half: A Novel"
-const img = "https://images-na.ssl-images-amazon.com/images/I/41ThX3SfAiL._AC_SY400_.jpg"
+// books array
+const books = [
+  {
+    author: 'Cambolia Sensei',
+    title: 'Alive',
+    img:
+      'https://images-na.ssl-images-amazon.com/images/I/41ThX3SfAiL._AC_SY400_.jpg',
+  },
+  {
+    author: 'Brit Bennett',
+    title: 'Vanishing Half: A Novel',
+    img:
+      'https://images-na.ssl-images-amazon.com/images/I/41ThX3SfAiL._AC_SY400_.jpg',
+  },
+]
 
-function Books () {
+function Books() {
   return (
-    <div className = 'booklist'>
-      <Book num = {15 + 44}>
-        <p>Lorem ipsum dolor sit amet.</p>
-      </Book>
-      <Book name = "the desert"/>
-      <Book inter = "22" />
-      
-
-    </div>
+    <section className='booklist  '>
+      {books.map((book) => {
+        const { author, img, title } = book
+        return (<Book book = {book} />)
+        
+      })}
+    </section>
   )
 }
 
-const Book = (props, children) => {
-
+const Book = (props) => {
   //this technique puts all the attribs name into the props .
   // its a js technique. to minimse code writing
 
-  const {num, inter} = props
+  const { title, img, author} = props.book
   return (
-    <article className = 'book'>
-      <img src ={img} alt = "Excuse the Beauty"/>
-      
-      <h2>{author.toUpperCase()}</h2>
-      <h4>{title.toLowerCase()}</h4>
-      <p>{num}</p>
-      <p>{props.name}</p>
-      <p>{inter}</p>
-      {props.children}
+    <article className='book'>
+      <div className='book'>
+        <h1>{title}</h1>
+        <img src={img} alt='Excuse the beauty' />
+        <h3>{author}</h3>
+      </div>
     </article>
-    );
+  )
 }
 
-ReactDom.render(<Books/>, document.getElementById('root'));
-
-
+ReactDom.render(<Books />, document.getElementById('root'))
