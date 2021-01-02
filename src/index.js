@@ -10,14 +10,18 @@ const img = "https://images-na.ssl-images-amazon.com/images/I/41ThX3SfAiL._AC_SY
 function Books () {
   return (
     <div className = 'booklist'>
-      <Book num = {15 + 44}/>
+      <Book num = {15 + 44}>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </Book>
       <Book name = "the desert"/>
       <Book inter = "22" />
+      
+
     </div>
   )
 }
 
-const Book = (props) => {
+const Book = (props, children) => {
 
   //this technique puts all the attribs name into the props .
   // its a js technique. to minimse code writing
@@ -26,11 +30,13 @@ const Book = (props) => {
   return (
     <article className = 'book'>
       <img src ={img} alt = "Excuse the Beauty"/>
+      
       <h2>{author.toUpperCase()}</h2>
       <h4>{title.toLowerCase()}</h4>
+      <p>{num}</p>
       <p>{props.name}</p>
       <p>{inter}</p>
-      <p>{num}</p>
+      {props.children}
     </article>
     );
 }
