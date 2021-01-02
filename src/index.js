@@ -18,14 +18,23 @@ function Books () {
 }
 
 const Book = (props) => {
+
+  //this technique puts all the attribs name into the props .
+  // its a js technique. to minimse code writing
+
+  const {num, inter} = props
   return (
     <article className = 'book'>
       <img src ={img} alt = "Excuse the Beauty"/>
       <h2>{author.toUpperCase()}</h2>
       <h4>{title.toLowerCase()}</h4>
+      <p>{props.name}</p>
+      <p>{inter}</p>
+      <p>{num}</p>
     </article>
     );
 }
 
 ReactDom.render(<Books/>, document.getElementById('root'));
+
 
