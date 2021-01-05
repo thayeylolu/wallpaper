@@ -1,7 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
+// using states to create a state trnasfer of an object
 const UseStateBasics = () => {
-  return <h2>useState basic example</h2>;
-};
+  const [text, setText] = useState('Available')
 
-export default UseStateBasics;
+  //  settext: usestate : set The usestate
+  const handleClick = () => {
+    if (text === 'Available') {
+      setText('Not Available')
+    } else {
+      setText('Available')
+    }
+  }
+
+  return (
+    <React.Fragment>
+      <h1>{text}</h1>
+      <button className='btn' onClick={handleClick}>
+        checking
+      </button>
+    </React.Fragment>
+  )
+}
+
+export default UseStateBasics
