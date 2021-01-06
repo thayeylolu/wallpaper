@@ -3,7 +3,7 @@ import { data } from '../../../data'
 
 const UseStateArray = () => {
   const [people, setPeople] = useState(data)
-  const DeleteItem = (id) => {
+  const DeleteItems = (id) => {
     let newPeople = people.filter((person) => person.id == id)
     return setPeople(newPeople)
   }
@@ -15,7 +15,7 @@ const UseStateArray = () => {
         return (
           <div key={id} className='item'>
             <h2>{name}</h2>
-            <button onClick={() => DeleteItem(id)}>remove</button>
+            <button onClick={() => DeleteItems(id)}>remove</button>
           </div>
         )
       })}
