@@ -4,7 +4,7 @@ import { data } from '../../../data'
 const UseStateArray = () => {
   const [people, setPeople] = useState(data)
   const DeleteItems = (id) => {
-    let newPeople = people.filter((person) => person.id == id)
+    let newPeople = people.filter((person) => person.id !== id)
     return setPeople(newPeople)
   }
 
